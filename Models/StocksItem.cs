@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace _1_2.Models;
+﻿namespace _1_2.Models;
 
 public partial class StocksItem
 {
@@ -13,9 +10,9 @@ public partial class StocksItem
 
     public int Count { get; set; }
 
-    public virtual Product IdProductNavigation { get; set; } = null!;
+    public virtual Product Product { get; set; } = null!;
 
-    public virtual Size IdSizeNavigation { get; set; } = null!;
+    public virtual Size Size { get; set; } = null!;
 
     public virtual ICollection<ProductsOrder> ProductsOrders { get; set; } = new List<ProductsOrder>();
 }

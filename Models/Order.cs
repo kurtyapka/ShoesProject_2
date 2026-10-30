@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace _1_2.Models;
+﻿namespace _1_2.Models;
 
 public partial class Order
 {
@@ -11,7 +8,7 @@ public partial class Order
 
     public short IdUser { get; set; }
 
-    public virtual User IdUserNavigation { get; set; } = null!;
+    public virtual User User { get; set; } = null!;
 
     public virtual ICollection<ProductsOrder> ProductsOrders { get; set; } = new List<ProductsOrder>();
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace _1_2.Models;
+﻿namespace _1_2.Models;
 
 public partial class Product
 {
@@ -23,11 +20,11 @@ public partial class Product
 
     public decimal Price { get; set; }
 
-    public virtual Category IdCategorieNavigation { get; set; } = null!;
+    public virtual Category Category { get; set; } = null!;
 
-    public virtual Manufacturer IdManufacturersNavigation { get; set; } = null!;
+    public virtual Manufacturer Manufacturer { get; set; } = null!;
 
-    public virtual Podcategory IdPodcategorieNavigation { get; set; } = null!;
+    public virtual Podcategory Podcategory { get; set; } = null!;
 
     public virtual ICollection<StocksItem> StocksItems { get; set; } = new List<StocksItem>();
 }

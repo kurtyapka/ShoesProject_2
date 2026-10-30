@@ -1,6 +1,4 @@
 ﻿using _1_2.Models;
-using System;
-using System.Collections.Generic;
 
 namespace _1_2;
 

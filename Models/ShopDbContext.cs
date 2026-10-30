@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using _1_2.Models;
+﻿using _1_2.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace _1_2;
@@ -74,7 +72,7 @@ public partial class ShopDbContext : DbContext
             entity.Property(e => e.Date).HasColumnName("date");
             entity.Property(e => e.IdUser).HasColumnName("id_user");
 
-            entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.Orders)
+            entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.IdUser)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("orders_id_user_fkey");
@@ -106,17 +104,17 @@ public partial class ShopDbContext : DbContext
             entity.Property(e => e.Name).HasColumnName("name");
             entity.Property(e => e.Price).HasColumnName("price");
 
-            entity.HasOne(d => d.IdCategorieNavigation).WithMany(p => p.Products)
+            entity.HasOne(d => d.Category).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdCategorie)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("products_id_categorie_fkey");
 
-            entity.HasOne(d => d.IdManufacturersNavigation).WithMany(p => p.Products)
+            entity.HasOne(d => d.Manufacturer).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdManufacturers)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("products_id_manufacturers_fkey");
 
-            entity.HasOne(d => d.IdPodcategorieNavigation).WithMany(p => p.Products)
+            entity.HasOne(d => d.Podcategory).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdPodcategorie)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("products_id_podcategorie_fkey");
@@ -133,12 +131,12 @@ public partial class ShopDbContext : DbContext
             entity.Property(e => e.IdOrder).HasColumnName("id_order");
             entity.Property(e => e.IdStockItem).HasColumnName("id_stock_item");
 
-            entity.HasOne(d => d.IdOrderNavigation).WithMany(p => p.ProductsOrders)
+            entity.HasOne(d => d.Order).WithMany(p => p.ProductsOrders)
                 .HasForeignKey(d => d.IdOrder)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("products_order_id_order_fkey");
 
-            entity.HasOne(d => d.IdStockItemNavigation).WithMany(p => p.ProductsOrders)
+            entity.HasOne(d => d.StocksItem).WithMany(p => p.ProductsOrders)
                 .HasForeignKey(d => d.IdStockItem)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("products_order_id_stock_item_fkey");
@@ -175,12 +173,12 @@ public partial class ShopDbContext : DbContext
             entity.Property(e => e.IdProduct).HasColumnName("id_product");
             entity.Property(e => e.IdSize).HasColumnName("id_size");
 
-            entity.HasOne(d => d.IdProductNavigation).WithMany(p => p.StocksItems)
+            entity.HasOne(d => d.Product).WithMany(p => p.StocksItems)
                 .HasForeignKey(d => d.IdProduct)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("stocks_items_id_product_fkey");
 
-            entity.HasOne(d => d.IdSizeNavigation).WithMany(p => p.StocksItems)
+            entity.HasOne(d => d.Size).WithMany(p => p.StocksItems)
                 .HasForeignKey(d => d.IdSize)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("stocks_items_id_size_fkey");
@@ -199,7 +197,7 @@ public partial class ShopDbContext : DbContext
             entity.Property(e => e.IdRole).HasColumnName("id_role");
             entity.Property(e => e.Login).HasColumnName("login");
 
-            entity.HasOne(d => d.IdRoleNavigation).WithMany(p => p.Users)
+            entity.HasOne(d => d.Role).WithMany(p => p.Users)
                 .HasForeignKey(d => d.IdRole)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("Users_id_role_fkey");

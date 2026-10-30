@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace _1_2.Models;
+﻿namespace _1_2.Models;
 
 public partial class User
 {
@@ -17,7 +14,7 @@ public partial class User
 
     public int IdRole { get; set; }
 
-    public virtual Role IdRoleNavigation { get; set; } = null!;
+    public virtual Role Role { get; set; } = null!;
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }
