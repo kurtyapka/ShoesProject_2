@@ -30,7 +30,7 @@ public partial class ShopDbContext : DbContext
 
     public virtual DbSet<Role> Roles { get; set; }
 
-    public virtual DbSet<Size> Sizes { get; set; }
+    public virtual DbSet<Models.Size> Sizes { get; set; }
 
     public virtual DbSet<StocksItem> StocksItems { get; set; }
 
@@ -154,7 +154,7 @@ public partial class ShopDbContext : DbContext
             entity.Property(e => e.RoleName).HasColumnName("role_name");
         });
 
-        modelBuilder.Entity<Size>(entity =>
+        modelBuilder.Entity<Models.Size>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("sizes_pkey");
 
